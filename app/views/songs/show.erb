@@ -1,0 +1,7 @@
+Song's Artist and Genre:
+<%= @song.artist.name %>
+<a href=<%= "/artists/#{@song.artist.slug}" %>>Click here to go to the Artist's page</a>
+<% @song.genres.each do |genre| %>
+<li><%=genre.name%></li>
+<a href=<%= "/genres/#{genre.slug}" %>>Click here to go to the Genre's page</a>
+<% end %>

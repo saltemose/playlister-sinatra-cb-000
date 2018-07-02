@@ -1,0 +1,7 @@
+List of Artists
+<br></br>
+<% @artists.each do |artist| %>
+<li><%= artist.name %></li>
+<a href="/artists/<%=artist.slug%>"><%= artist.name %></a>
+<br></br>
+<% end %>
