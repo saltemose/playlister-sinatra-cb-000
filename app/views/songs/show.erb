@@ -2,6 +2,7 @@
 <%= flash[:message] %>
 <% end %>
 
+<%= @song.name %>
 Song's Artist and Genre:
 <%= @song.artist.name %>
 <a href=<%= "/artists/#{@song.artist.slug}" %>>Click here to go to the Artist's page</a>
