@@ -1,3 +1,8 @@
+<% if flash.has?(:message) %>
+<%= flash[:message] %>
+<% end %>
+
+
 Artist's Songs and Genres
 <h1><%=@artist.name%></h1>
 <h2>Songs</h2>
@@ -8,8 +13,13 @@ Artist's Songs and Genres
 
 <h2>Genres</h2>
 <%@artist.songs.each do |song| %>
-<% song.genres.each do |genre| %>
+<% song.genres.uniq.each do |genre| %>
 <li><%= genre.name %></li>
 <a href=<%="/genres/#{genre.slug}"%>>Click here to go to the Genre's page</a>
 <% end %>
 <% end %>
+
+<form action="/songs/<%=@song.slug%>/edit" method="get">
+  <input type="submit" value="Update Song" id="update">
+
+</form>
