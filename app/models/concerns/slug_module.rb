@@ -1,13 +1,15 @@
 module SlugThis
-  module InstanceMethods
-    def slug
-      self.name.downcase.split.join("-")
-    end
-  end
-
   module ClassMethods
-    def find_by_slug(slug)
-      self.all.find {|instance| instance.slug == slug}
+      def find_by_slug(slug)
+        self.all.find do |ob|
+          ob.slug == slug
+        end
+      end
     end
-  end
-end 
+
+    module InstanceMethods
+      def slug
+        self.name.downcase.gsub(/\W/, '-')
+      end
+    end
+end
