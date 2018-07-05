@@ -42,7 +42,7 @@ class SongsController < ApplicationController
   end
 
   patch '/songs/:slug' do
-    @song = Song.find(params[:id])
+    @song = Song.find_by_slug(params[:slug])
     @song.artist = Artist.find_by(id: @song.artist_id)
     @song.artist.name = params[:artist_name]
     @song.save
