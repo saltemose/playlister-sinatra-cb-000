@@ -27,20 +27,19 @@ class SongsController < ApplicationController
     get '/songs/new' do
       @genres = Genre.all
       @artists = Artist.all
-      erb :'songs/new'
+      erb :'/songs/new'
     end
 
   get '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
-    erb :'songs/show'
+    erb :'/songs/show'
   end
 
   get 'songs/:slug/edit' do
     @song = Song.find_by_slug(params[:slug])
     puts @song.to_json
     @genres = Genre.all
-    puts @genres.to_json
-    erb :'songs/edit'
+    erb :'/songs/edit'
   end
 
   patch '/songs/:id' do
