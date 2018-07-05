@@ -9,7 +9,7 @@ module SlugThis
 
     module InstanceMethods
       def slug
-        self.username.gsub(/\W/, '-')
+        self.name.gsub(/\W/, '-')
       end
     end
 end
