@@ -39,6 +39,7 @@ class SongsController < ApplicationController
     @song = Song.find_by_slug(params[:slug])
     puts @song.to_json
     @genres = Genre.all
+    puts @genres.to_json
     erb :'songs/edit'
   end
 
